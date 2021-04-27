@@ -1,0 +1,38 @@
+# ensure-string
+
+[![NPM version][npm-image]][npm-url]
+[![build status][ci-image]][ci-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![npm download][download-image]][download-url]
+
+Ensure that we receive a text even if an ArrayBuffer is sent.
+
+## Installation
+
+`$ npm i ensure-string`
+
+## Usage
+
+We have a `text.txt` file containing the string `ABC`.
+
+```js
+import { ensureString } from '..';
+const blob = readFileSync(join(__dirname, 'test.txt')); // read the file as an ArrayBuffer
+const text = ensureString(blob);
+console.log(text); // the text is a string containing ÀBC`
+```
+
+## [API Documentation](https://cheminfo.github.io/ensure-string/)
+
+## License
+
+[MIT](./LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/ensure-string.svg
+[npm-url]: https://www.npmjs.com/package/ensure-string
+[ci-image]: https://github.com/cheminfo/ensure-string/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-url]: https://github.com/cheminfo/ensure-string/actions?query=workflow%3A%22Node.js+CI%22
+[codecov-image]: https://img.shields.io/codecov/c/github/cheminfo/ensure-string.svg
+[codecov-url]: https://codecov.io/gh/cheminfo/ensure-string
+[download-image]: https://img.shields.io/npm/dm/ensure-string.svg
+[download-url]: https://www.npmjs.com/package/ensure-string
