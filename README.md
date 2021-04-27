@@ -17,6 +17,8 @@ We have a `text.txt` file containing the string `ABC`.
 
 ```js
 import { ensureString } from '..';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 const blob = readFileSync(join(__dirname, 'test.txt')); // read the file as an ArrayBuffer
 const text = ensureString(blob);
 console.log(text); // the text is a string containing ÀBC`
