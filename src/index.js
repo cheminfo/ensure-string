@@ -8,7 +8,7 @@
 
 export function ensureString(blob, options = {}) {
   const { encoding = 'utf8' } = options;
-  if (ArrayBuffer.isView(blob)) {
+  if (ArrayBuffer.isView(blob) || blob instanceof ArrayBuffer) {
     const decoder = new TextDecoder(encoding);
     return decoder.decode(blob);
   }

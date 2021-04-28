@@ -5,7 +5,11 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
 
-Ensure that we receive a text even if an ArrayBuffer is sent.
+If required, convert the input value to a string.
+
+The input value may be a Buffer, ArrayBuffer, Int8Array. By default the conversion will consider that the text encoding is `utf8`.
+
+If the input value is a text no change is done. The method returns the value without further processing.
 
 ## Installation
 
