@@ -7,9 +7,12 @@
 
 If required, convert the input value to a string.
 
-The input value may be a Buffer, ArrayBuffer, Int8Array. By default the conversion will consider that the text encoding is `utf8`.
+The input value may be a Buffer, ArrayBuffer, Int8Array.
 
-If the input value is a text no change is done. The method returns the value without further processing.
+By default the conversion will consider that the text encoding is `utf-8`.
+If the file contains an UTF-16 byte-order mark (BOM), this will be detected and default to `utf-16le` or `utf-16be` accordingly.
+
+If the input value is a text, no change is done. The method returns the value without further processing.
 
 ## Installation
 
