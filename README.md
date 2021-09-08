@@ -39,7 +39,7 @@ console.log(text); // the text is a string containing ÀBC`
 
 [npm-image]: https://img.shields.io/npm/v/ensure-string.svg
 [npm-url]: https://www.npmjs.com/package/ensure-string
-[ci-image]: https://github.com/cheminfo/ensure-string/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-image]: https://github.com/cheminfo/ensure-string/workflows/Node.js%20CI/badge.svg?branch=main
 [ci-url]: https://github.com/cheminfo/ensure-string/actions?query=workflow%3A%22Node.js+CI%22
 [codecov-image]: https://img.shields.io/codecov/c/github/cheminfo/ensure-string.svg
 [codecov-url]: https://codecov.io/gh/cheminfo/ensure-string

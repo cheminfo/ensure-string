@@ -1,12 +1,18 @@
+interface Options {
+  /** Specify the encoding, by default 'utf8' or 'utf16' */
+  encoding?: string;
+}
+
 /**
  * Ensure that the data is string. If it is an ArrayBuffer it will be converted to string using TextDecoder.
- * @param {string|ArrayBuffer|ArrayBufferView} blob
- * @param {object} [options={}]
- * @param {string} [options.encoding] - Defaults to `utf-8` or automatic detection of `utf-16`.
- * @returns {string}
+ * @param blob
+ * @param options
+ * @returns
  */
-
-export function ensureString(blob, options = {}) {
+export function ensureString(
+  blob: string | ArrayBuffer | Uint8Array,
+  options: Options = {},
+) {
   if (typeof blob === 'string') {
     return blob;
   }
@@ -18,7 +24,7 @@ export function ensureString(blob, options = {}) {
   throw new TypeError(`blob must be a string, ArrayBuffer or ArrayBufferView`);
 }
 
-function guessEncoding(blob) {
+function guessEncoding(blob: ArrayBuffer | Uint8Array): string {
   const uint8 = ArrayBuffer.isView(blob)
     ? new Uint8Array(blob.buffer, blob.byteOffset, blob.byteLength)
     : new Uint8Array(blob);
