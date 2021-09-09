@@ -1,5 +1,7 @@
-interface Options {
-  /** Specify the encoding, by default 'utf8' or 'utf16' */
+export interface EnsureStringOptions {
+  /** Specify the encoding, by default 'utf8' or 'utf16'
+   * @default 'utf8' or utf16 if there is BOM utf16
+   */
   encoding?: string;
 }
 
@@ -11,8 +13,8 @@ interface Options {
  */
 export function ensureString(
   blob: string | ArrayBuffer | Uint8Array,
-  options: Options = {},
-) {
+  options: EnsureStringOptions = {},
+): string {
   if (typeof blob === 'string') {
     return blob;
   }
