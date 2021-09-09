@@ -42,6 +42,7 @@ describe('ensureString', () => {
   it.each([[{}], [[]], [new Date()], [true]])(
     'should throw for wrong types',
     (param) => {
+      // @ts-expect-error
       expect(() => ensureString(param)).toThrow(TypeError);
     },
   );
