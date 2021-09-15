@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/cheminfo/ensure-string/compare/v1.0.0...v1.1.0) (2021-09-15)
+
+
+### Features
+
+* add typescript definition ([2d0431b](https://www.github.com/cheminfo/ensure-string/commit/2d0431b46337698ef9bae5b1b533fd5092bf628e))
+* add typescript definition ([18ea2a8](https://www.github.com/cheminfo/ensure-string/commit/18ea2a8fea2bd5aa34c22938e64e3b35d1158bf8))
+
 ## [1.0.0](https://www.github.com/cheminfo/ensure-string/compare/v0.1.1...v1.0.0) (2021-07-29)
 
 
