@@ -5,7 +5,7 @@ import { ensureString } from '..';
 
 describe('ensureString', () => {
   it('should not change string', () => {
-    expect(ensureString('abc')).toStrictEqual('abc');
+    expect(ensureString('abc')).toBe('abc');
   });
 
   it.each([['utf8'], ['utf8bom'], ['utf16le'], ['utf16be']])(
@@ -23,7 +23,7 @@ describe('ensureString', () => {
     view[0] = 65;
     view[1] = 66;
     view[2] = 67;
-    expect(ensureString(buffer)).toStrictEqual('ABC');
+    expect(ensureString(buffer)).toBe('ABC');
   });
 
   it('should convert typed array', () => {
@@ -31,7 +31,7 @@ describe('ensureString', () => {
     blob[0] = 65;
     blob[1] = 66;
     blob[2] = 67;
-    expect(ensureString(blob)).toStrictEqual('ABC');
+    expect(ensureString(blob)).toBe('ABC');
   });
 
   it('should work with less than two bytes', () => {

@@ -1,3 +1,5 @@
+import type { TextData } from 'cheminfo-types';
+
 export interface EnsureStringOptions {
   /** Specify the encoding, by default 'utf8' or 'utf16'
    * @default 'utf8' or utf16 if there is BOM utf16
@@ -12,7 +14,7 @@ export interface EnsureStringOptions {
  * @returns
  */
 export function ensureString(
-  blob: string | ArrayBuffer | Uint8Array,
+  blob: TextData,
   options: EnsureStringOptions = {},
 ): string {
   if (typeof blob === 'string') {
