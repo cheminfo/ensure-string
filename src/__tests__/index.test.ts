@@ -34,6 +34,11 @@ describe('ensureString', () => {
     expect(ensureString(blob)).toBe('ABC');
   });
 
+  it('should convert latin1', () => {
+    const blob = readFileSync(join(__dirname, 'test-latin1.txt'));
+    expect(ensureString(ensureString(blob))).toBe('°C\n');
+  });
+
   it('should work with less than two bytes', () => {
     expect(ensureString(Uint8Array.of(65))).toBe('A');
     expect(ensureString(new Uint8Array(0))).toBe('');

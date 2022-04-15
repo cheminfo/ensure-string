@@ -1,8 +1,10 @@
 import type { TextData } from 'cheminfo-types';
+import isutf8 from 'isutf8';
 
 export interface EnsureStringOptions {
-  /** Specify the encoding, by default 'utf8' or 'utf16'
-   * @default 'utf8' or utf16 if there is BOM utf16
+  /**
+   * Specify the encoding, by default 'utf8' or 'utf16'
+   * @default 'utf8' or utf16 if there is BOM utf16 or latin1 if it is not utf8
    */
   encoding?: string;
 }
@@ -40,5 +42,8 @@ function guessEncoding(blob: ArrayBuffer | Uint8Array): string {
       return 'utf-16le';
     }
   }
+  //@ts-expect-error an ArrayBuffer is also ok
+  if (!isutf8(blob)) return 'latin1';
+
   return 'utf-8';
 }
