@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/cheminfo/ensure-string/compare/v1.1.0...v1.2.0) (2022-04-15)
+
+
+### Features
+
+* if encoding is not specified select latin1 if not utf8 ([4d8560e](https://www.github.com/cheminfo/ensure-string/commit/4d8560e0ea289d0eec995a84c252899b8c578b9a))
+
 ## [1.1.0](https://www.github.com/cheminfo/ensure-string/compare/v1.0.0...v1.1.0) (2021-09-15)
 
 
