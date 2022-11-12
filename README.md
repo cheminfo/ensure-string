@@ -4,6 +4,7 @@
 [![build status][ci-image]][ci-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5145388.svg)](https://doi.org/10.5281/zenodo.5145388)
 
 If required, convert the input value to a string.
 
