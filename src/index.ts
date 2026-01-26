@@ -1,5 +1,4 @@
 import type { TextData } from 'cheminfo-types';
-import isutf8 from 'isutf8';
 
 export interface EnsureStringOptions {
   /**
@@ -23,27 +22,30 @@ export function ensureString(
     return blob;
   }
   if (ArrayBuffer.isView(blob) || blob instanceof ArrayBuffer) {
-    const { encoding = guessEncoding(blob) } = options;
-    const decoder = new TextDecoder(encoding);
-    return decoder.decode(blob);
+    if (options.encoding) {
+      return new TextDecoder(options.encoding).decode(blob);
+    } else {
+      return decodeText(blob);
+    }
   }
   throw new TypeError(`blob must be a string, ArrayBuffer or ArrayBufferView`);
 }
 
-function guessEncoding(blob: ArrayBuffer | Uint8Array): string {
+function decodeText(blob: ArrayBuffer | Uint8Array): string {
   const uint8 = ArrayBuffer.isView(blob)
     ? new Uint8Array(blob.buffer, blob.byteOffset, blob.byteLength)
     : new Uint8Array(blob);
   if (uint8.length >= 2) {
     if (uint8[0] === 0xfe && uint8[1] === 0xff) {
-      return 'utf-16be';
+      return new TextDecoder('utf-16be').decode(uint8);
     }
     if (uint8[0] === 0xff && uint8[1] === 0xfe) {
-      return 'utf-16le';
+      return new TextDecoder('utf-16le').decode(uint8);
     }
   }
-  //@ts-expect-error an ArrayBuffer is also ok
-  if (!isutf8(blob)) return 'latin1';
-
-  return 'utf8';
+  try {
+    return new TextDecoder('utf-8', { fatal: true }).decode(uint8);
+  } catch {
+    return new TextDecoder('latin1').decode(uint8);
+  }
 }

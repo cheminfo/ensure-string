@@ -50,7 +50,6 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
-    "cheminfo-types": "^1.10.0",
-    "isutf8": "^4.0.1"
+    "cheminfo-types": "^1.10.0"
   }
 }
