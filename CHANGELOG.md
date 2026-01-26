@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/cheminfo/ensure-string/compare/v1.2.0...v2.0.0) (2026-01-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependencies and migrate to vitest and type=module
+
+### Features
+
+* expose TextData type ([2206927](https://www.github.com/cheminfo/ensure-string/commit/220692736bec0819a1236a6a09091e34f8b66ca1))
+
+
+### Miscellaneous Chores
+
+* update dependencies and migrate to vitest and type=module ([f8e34de](https://www.github.com/cheminfo/ensure-string/commit/f8e34de9e1bb7109b6cd859e16d2c00500aa056b))
+
 ## [1.2.0](https://www.github.com/cheminfo/ensure-string/compare/v1.1.0...v1.2.0) (2022-04-15)
 
 
