@@ -8,6 +8,8 @@ export interface EnsureStringOptions {
   encoding?: string;
 }
 
+export type { TextData } from 'cheminfo-types';
+
 /**
  * Ensure that the data is string. If it is an ArrayBuffer it will be converted to string using TextDecoder.
  * @param blob
