@@ -45,5 +45,5 @@ function guessEncoding(blob: ArrayBuffer | Uint8Array): string {
   //@ts-expect-error an ArrayBuffer is also ok
   if (!isutf8(blob)) return 'latin1';
 
-  return 'utf-8';
+  return 'utf8';
 }

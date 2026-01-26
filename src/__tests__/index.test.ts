@@ -1,7 +1,9 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-import { ensureString } from '..';
+import { describe, expect, it } from 'vitest';
+
+import { ensureString } from '../index.ts';
 
 describe('ensureString', () => {
   it('should not change string', () => {
@@ -13,6 +15,7 @@ describe('ensureString', () => {
     (filename) => {
       const expected = 'ABC🫕';
       const blob = readFileSync(join(__dirname, `test-${filename}.txt`));
+
       expect(ensureString(blob)).toStrictEqual(expected);
     },
   );
@@ -23,6 +26,7 @@ describe('ensureString', () => {
     view[0] = 65;
     view[1] = 66;
     view[2] = 67;
+
     expect(ensureString(buffer)).toBe('ABC');
   });
 
@@ -31,11 +35,14 @@ describe('ensureString', () => {
     blob[0] = 65;
     blob[1] = 66;
     blob[2] = 67;
+
+    ///@ts-expect-error testing wrong type
     expect(ensureString(blob)).toBe('ABC');
   });
 
   it('should convert latin1', () => {
     const blob = readFileSync(join(__dirname, 'test-latin1.txt'));
+
     expect(ensureString(ensureString(blob))).toBe('°C\n');
   });
 
@@ -46,9 +53,8 @@ describe('ensureString', () => {
 
   it.each([[{}], [[]], [new Date()], [true]])(
     'should throw for wrong types',
-    (param) => {
-      // @ts-expect-error expected to be an error
-      expect(() => ensureString(param)).toThrow(TypeError);
+    (param: any) => {
+      expect(() => ensureString(param)).toThrowError(TypeError);
     },
   );
 });
