@@ -16,7 +16,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "clean": "rimraf lib lib-esm",
-    "eslint": "eslint src --cache",
+    "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepack": "npm run tsc",
     "prettier": "prettier --check src",
